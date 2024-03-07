@@ -1,9 +1,17 @@
 "use client";
 import { Raleway } from "next/font/google";
 import { React, useMemo, useState } from "react";
-import { Button, Input, Switch } from "@nextui-org/react";
+import { Button, Input, Tooltip } from "@nextui-org/react";
 import { EyeSlashFilledIcon } from "./icons/EyeSlashFilledIcon";
 import { EyeFilledIcon } from "./icons/EyeFilledIcon";
+import {
+  PiGoogleDriveLogoLight,
+  PiGooglePhotosLogoLight,
+  PiGooglePodcastsLogoLight,
+  PiGooglePlayLogoLight,
+} from "react-icons/pi";
+
+import Link from "next/link";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -55,12 +63,21 @@ function Form() {
   return (
     <form
       onSubmit={"#"}
-      className={`px-16 border  rounded-lg py-14  relative z-[999] shadow-2xl ${raleway.className} flex flex-col items-center backdrop-blur-md lg:w-[700px] `}
+      className={`px-16 rounded-lg py-14  relative z-[999] shadow-2xl ${raleway.className} flex flex-col items-center  lg:w-[700px] bg-white xl:w-[500px] `}
     >
-      <div className="overflow-hidden">
-        <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200">
-          <h3 className="text-blue-600 font-bold text-[30px]">SIGN IN</h3>
-        </div>
+      <div className="flex justify-between gap-x-14">
+        <Link href="#" className="hover:scale-[1.75] transition-all duration-300 ease-in-out">
+          <PiGoogleDriveLogoLight style={{ color: "#FFC107" }} />
+        </Link>
+        <Link href="#" className="hover:scale-[1.75] transition-all duration-300 ease-in-out">
+          <PiGooglePhotosLogoLight style={{ color: "#4285F4" }} />
+        </Link>
+        <Link href="#" className="hover:scale-[1.75] transition-all duration-300 ease-in-out">
+          <PiGooglePodcastsLogoLight style={{ color: "#EA4335" }} />
+        </Link>
+        <Link href="#" className="hover:scale-[1.75] transition-all duration-300 ease-in-out">
+          <PiGooglePlayLogoLight style={{ color: "#34A853" }} />
+        </Link>
       </div>
       <div className="grid grid-cols-1">
         <div className="overflow-hidden">
@@ -122,15 +139,19 @@ function Form() {
             className="w-full"
           >
             <Button
-              className="border-2 bg-yellow-500 font-bold text-gray-900 w-full"
+              className="border-2 bg-yellow-500 font-normal text-gray-900 w-full"
               isLoading={loader}
               onClick={handleSubmit}
             >
-              {loader ? "please wait..." : "SUBMIT"}
+              {loader ? "please wait..." : "SIGN IN"}
             </Button>
           </div>
           <div className="overflow-hidden">
-            <div data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1200">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="1200"
+              data-aos-delay="1200"
+            >
               <h6 className="font-normal text-[12px] text-black pt-2">{msg}</h6>
             </div>
           </div>
